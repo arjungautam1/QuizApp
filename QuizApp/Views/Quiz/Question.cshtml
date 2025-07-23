@@ -19,10 +19,9 @@
                             @for (int i = 0; i < Model.CurrentQuestion.Options.Count; i++)
                             {
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input" type="radio" name="selectedAnswer"
-                                           id="option@i" value="@i"
-                                           @(Model.SelectedAnswer == i ? "checked" : "")>
-                                    <label class="form-check-label" for="option@i">
+                                    <label class="form-check-label w-100">
+                                        <input class="form-check-input" type="radio" name="selectedAnswer"
+                                               value="@i" @(Model.SelectedAnswer == i ? "checked" : "")>
                                         @Model.CurrentQuestion.Options[i]
                                     </label>
                                 </div>
