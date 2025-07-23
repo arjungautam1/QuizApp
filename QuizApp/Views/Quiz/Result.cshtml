@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Quiz Results";
+    var passed = (bool)ViewBag.Passed;
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header @(passed ? "bg-success" : "bg-danger") text-white text-center">
+                    <h3 class="mb-0">
+                        Quiz Results
+                    </h3>
+                </div>
+                <div class="card-body text-center">
+                    <h1 class="display-3 mb-4 @(passed ? "text-success" : "text-danger")">
+                        @ViewBag.Score/@ViewBag.Total
+                    </h1>
+
+                    <div class="mb-4">
+                        <h5>Your Score: @(ViewBag.Score * 10)%</h5>
+                        <div class="progress" style="height: 30px;">
+                            <div class="progress-bar @(passed ? "bg-success" : "bg-danger")"
+                                 role="progressbar"
+                                 style="width: @(ViewBag.Score * 10)%"
+                                 aria-valuenow="@(ViewBag.Score * 10)"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                                @(ViewBag.Score * 10)%
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (passed)
+                    {
+                        <div class="alert alert-success">
+                            <h4 class="alert-heading">Congratulations! 🎉</h4>
+                            <p class="mb-0">You have successfully passed the test.</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">
+                            <h4 class="alert-heading">Keep Trying!</h4>
+                            <p class="mb-0">Unfortunately you did not pass the test. Please try again later!</p>
+                        </div>
+                        <div class="text-center mb-3">
+                            <p class="text-muted">You need at least 8 correct answers to pass.</p>
+                        </div>
+                    }
+
+                    <div class="mt-4">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                            Go to Home Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

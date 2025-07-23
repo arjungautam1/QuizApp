@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Submit Quiz";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">⚠ Ready to Submit?</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead mb-4">
+                        You have answered <strong class="text-primary">@ViewBag.AnsweredCount</strong> out of
+                        <strong class="text-primary">@ViewBag.TotalQuestions</strong> questions.
+                    </p>
+
+                    @if (ViewBag.AnsweredCount < ViewBag.TotalQuestions)
+                    {
+                        <div class="alert alert-warning">
+                            <strong>Note:</strong> You still have @(ViewBag.TotalQuestions - ViewBag.AnsweredCount) unanswered question(s).
+                            Are you sure you want to submit?
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-success">
+                            ✓ Great! You have answered all questions.
+                        </div>
+                    }
+
+                    <form asp-controller="Quiz" asp-action="Result" method="post" class="mt-4">
+                        <button type="submit" class="btn btn-success btn-lg me-2">
+                            Submit Quiz
+                        </button>
+                        <a asp-controller="Quiz" asp-action="Question" class="btn btn-secondary btn-lg">
+                            Go Back
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   

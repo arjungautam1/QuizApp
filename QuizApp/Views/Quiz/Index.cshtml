@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Computer Science Quiz";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">
+        Computer Science Quiz
+    </h1>
+    <p class="lead">Test your knowledge of computer science fundamentals!</p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">
+                        Quiz Information
+                    </h4>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Quiz Rules:</h5>
+                            <ul class="text-start">
+                                <li>10 randomly selected questions</li>
+                                <li>4 options per question</li>
+                                <li>Only one correct answer</li>
+                                <li>Navigate between questions</li>
+                                <li>Review before submitting</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Passing Criteria:</h5>
+                            <ul class="text-start">
+                                <li>Minimum score: <strong>8/10 (80%)</strong></li>
+                                <li>Time limit: <strong>None</strong></li>
+                                <li>Attempts: <strong>Unlimited</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="text-center">
+                        <p class="mb-4">Ready to test your computer science knowledge?</p>
+                        <a asp-controller="Quiz" asp-action="Start" class="btn btn-primary btn-lg">
+                            Start Quiz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="alert alert-info">
+                <strong>Topics covered:</strong> Programming languages, Data structures, Algorithms,
+                Databases, Web development, and more!
+            </div>
+        </div>
+    </div>
+</div>
