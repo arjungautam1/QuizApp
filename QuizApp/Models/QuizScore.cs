@@ -4,19 +4,18 @@ namespace QuizApp.Models
 {
     public class QuizScore
     {
-        [Key]
         public int Id { get; set; }
-
-        [Required]
+        
         public int Score { get; set; }
-
-        [Required]
+        
         public int TotalQuestions { get; set; }
-
-        [Required]
+        
         public DateTime DateTaken { get; set; }
-
-        // Calculate percentage
-        public double Percentage => (double)Score / TotalQuestions * 100;
+        
+        // Calculated property for percentage
+        public double Percentage => TotalQuestions > 0 ? (double)Score / TotalQuestions * 100 : 0;
+        
+        // Calculated property for pass/fail
+        public bool Passed => Score >= 8; // 80% passing grade
     }
 }
