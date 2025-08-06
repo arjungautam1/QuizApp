@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using QuizApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
+
+// Add database context
+builder.Services.AddDbContext<QuizDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configure session
 builder.Services.AddDistributedMemoryCache();
